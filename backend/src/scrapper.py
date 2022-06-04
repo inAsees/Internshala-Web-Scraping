@@ -13,18 +13,6 @@ from tqdm import tqdm
 from backend.src.get_stipend import GetStipend
 
 
-class AttemptsHandler:
-    def __init__(self, max_attempts: int):
-        self._max_attempts = max_attempts
-        self._cur_attempt = 0
-
-    def increment_cur_attempt(self) -> None:
-        self._cur_attempt += 1
-
-    def is_attempts_left(self) -> bool:
-        return self._cur_attempt < self._max_attempts
-
-
 @dataclass
 class CompanyInfo:
     job_title: str

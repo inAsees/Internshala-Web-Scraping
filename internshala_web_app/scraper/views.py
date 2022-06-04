@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from backend.src.utils import Utils
+
 
 # Create your views here.
 def index(request):
@@ -15,7 +17,8 @@ def services(request):
 
 
 def scraper(request):
-    return render(request, 'services-scraping_website.html')
+    keywords = Utils.get_available_keywords()
+    return render(request, 'services-scraping_website.html', {'keywords': keywords})
 
 
 def analytics(request):

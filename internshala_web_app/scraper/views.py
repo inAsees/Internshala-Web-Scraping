@@ -14,5 +14,13 @@ def services(request):
     return render(request, 'services.html')
 
 
+def scraper(request):
+    return render(request, 'services-scraping_website.html')
+
+
+def analytics(request):
+    return render(request, 'services-analytics.html')
+
+
 def download(request):
     return render(request, 'download.html')

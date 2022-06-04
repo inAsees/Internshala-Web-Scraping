@@ -1,14 +1,16 @@
 import csv
-from typing import Optional
+import logging
 from csv import DictWriter
 from dataclasses import dataclass
 from typing import List
+from typing import Optional
+
 import requests as req
 from bs4 import BeautifulSoup as bs
 from bs4.element import ResultSet
 from tqdm import tqdm
-import logging
-from src.get_stipend import GetStipend
+
+from backend.src.get_stipend import GetStipend
 
 
 class AttemptsHandler:

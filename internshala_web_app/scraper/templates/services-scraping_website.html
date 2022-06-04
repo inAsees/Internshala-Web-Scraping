@@ -10,7 +10,7 @@
 </h2>
 <form method="POST" action='{% url "scraper" %}'>
     {% csrf_token %}
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" aria-label="Default select example" name="keyword">
         <option selected>--select--</option>
         {% for i in keywords %}
         <option>{{i}}</option>

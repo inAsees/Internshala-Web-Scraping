@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from backend.src.scrapper import ScrapInternshala
 from backend.src.utils import Utils
 
 
@@ -17,8 +18,14 @@ def services(request):
 
 
 def scraper(request):
-    keywords = Utils.get_available_keywords()
-    return render(request, 'services-scraping_website.html', {'keywords': keywords})
+    if request.method == "POST":
+        keyword_search = request.POST['keyword']
+        scrap_internshala = ScrapInternshala(keyword_search)
+        scrap_internshala.scrap_all_pages()
+        return render(request, 'services-scraper_website.html')
+    else:
+        keywords = Utils.get_available_keywords()
+        return render(request, 'services-scraping_website.html', {'keywords': keywords})
 
 
 def analytics(request):

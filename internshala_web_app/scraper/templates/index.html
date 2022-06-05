@@ -2,21 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home | Internshala scraper</title>
-    <style>
-        p { background: lightgray; overflow: auto; float: left; padding: 10px; }
-        p:hover { background: gray; }
-    </style>
+    <title>Internshala Scraper</title>
 </head>
-
 <body>
+
 <h1>
-    Welcome to Internshala Scraper
+    About Internshala Scraper
 </h1>
-<p><a href=""><strong>Home</strong></a></p>
-<p><a href="about"><strong>About</strong></a></p>
-<p><a href="services"><strong>Services</strong></a></p>
-<p><a href="download"><strong>Download</strong></a></p>
+<h2>
+    <p>
+        This website is intended to scrap all the necessary data from <a href="https://internshala.com/">www.internshala.com</a>
+        as per the <a href="https://internshala.com/internships"><strong>keyword</strong></a> selected by the user.<br>
+        Once the scraping is completed , all the scraped data will be stored in the database(MySQL).
+    </p>
+</h2>
+<h2>
+    If you want to start the scraping process , please select one keyword from the following options:
+</h2>
+<br>
+<form method="POST" action='{% url "home" %}'>
+    {% csrf_token %}
+    <select class="form-select" aria-label="Default select example" name="keyword">
+        <option selected>--select--</option>
+        {% for i in keywords %}
+        <option>{{i}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary">Start Scraping</button>
+</form>
+
 
 
 </body>

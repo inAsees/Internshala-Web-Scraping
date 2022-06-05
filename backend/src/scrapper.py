@@ -55,7 +55,9 @@ class ScrapInternshala:
                                                    "weekly_lump_sum",
                                                    "incentive", "duration_in_days", "location", "apply_by",
                                                    "applicants", "number_of_openings", "skill_set", "perks",
-                                                   "src_url", ])
+                                                   "src_url",
+                                                   ]
+                                    )
             writer.writeheader()
             self._write_file(writer)
 

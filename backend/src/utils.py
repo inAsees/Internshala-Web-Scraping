@@ -19,15 +19,3 @@ class Utils:
                               "MERN Stack Development", "Quality Assurance", "Web Design", "Internet of Things (IoT)", ]
 
         return sorted(available_keywords)
-
-    @staticmethod
-    def is_file_extension_supported(path: Path) -> bool:
-        return path.suffix == ".csv"
-
-    @staticmethod
-    def is_file_path_exists(path: Path) -> bool:
-        return path.exists()
-
-    @staticmethod
-    def is_parent_path_exists(path: Path) -> bool:
-        return path.parent.exists()

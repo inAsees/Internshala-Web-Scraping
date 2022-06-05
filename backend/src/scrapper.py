@@ -4,10 +4,12 @@ from csv import DictWriter
 from dataclasses import dataclass
 from datetime import date
 from typing import List, Optional
+
 import requests as req
 from bs4 import BeautifulSoup as bs
 from bs4.element import ResultSet
 from tqdm import tqdm
+
 from backend.src.get_stipend import GetStipend
 
 
@@ -43,6 +45,9 @@ class ScrapInternshala:
         for url in self._python_internship_page_url:
             self._scrap_url(url, page_no)
             page_no += 1
+
+    def get_company_info_list(self) -> List[CompanyInfo]:
+        return self._company_info_list
 
     def dump(self, file_path: str) -> None:
         with open(file_path, "w", encoding="utf-8", newline="") as f:
@@ -187,7 +192,7 @@ class ScrapInternshala:
 
     @staticmethod
     def _get_incentive(company_soup: ResultSet) -> str:
-        incentive = "0"
+        incentive = ""
 
         for i in company_soup:
             text = i.get("popover_content")

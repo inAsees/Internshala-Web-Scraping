@@ -6,21 +6,9 @@ from .models import InternshipDetail
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
-
-
-def about(request):
-    return render(request, 'about.html')
-
-
-def services(request):
-    return render(request, 'services.html')
-
-
-def scraper(request):
     if request.method == "GET":
         keywords = Utils.get_available_keywords()
-        return render(request, 'services-scraping_website.html', {'keywords': keywords})
+        return render(request, 'index.html', {'keywords': keywords})
     keyword_search = request.POST['keyword']
     scrap_internshala = ScrapInternshala(keyword_search)
     scrap_internshala.scrap_all_pages()
@@ -32,12 +20,4 @@ def scraper(request):
                                   number_of_openings=d.number_of_openings, skills=d.skill_set, perks=d.perks,
                                   src_url=d.src_url)
         intern.save()
-    return render(request, 'services-scraping_website.html')
-
-
-def analytics(request):
-    return render(request, 'services-analytics.html')
-
-
-def download(request):
-    return render(request, 'download.html')
+    return render(request, 'index.html')

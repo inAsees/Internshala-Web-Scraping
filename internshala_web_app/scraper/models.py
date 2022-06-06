@@ -12,7 +12,7 @@ class InternshipDetail(models.Model):
     location = models.CharField(max_length=100)
     last_date_to_apply = models.DateField(null=True)
     applicants_count = models.IntegerField()
-    number_of_openings = models.IntegerField()
+    number_of_openings = models.IntegerField(null=True)
     skills = models.CharField(max_length=300, blank=True)
     perks = models.CharField(max_length=300, blank=True)
     src_url = models.CharField(max_length=300)

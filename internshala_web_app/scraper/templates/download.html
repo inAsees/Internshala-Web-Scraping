@@ -21,6 +21,7 @@
 }
 
 
+
     </style>
 </head>
 <body>
@@ -32,7 +33,8 @@
     <p>
         This website is intended to scrap all the necessary data from <a href="https://internshala.com/">www.internshala.com</a>
         as per the <a href="https://internshala.com/internships"><strong>keyword</strong></a> selected by the user.<br>
-        Once the scraping is completed , all the scraped data will be stored in the database(MySQL) as well as CSV file.
+        Once the scraping is completed , all the scraped data will be stored in the database(MySQL) and converted into
+        CSV file for you to download.
     </p>
 </h2>
 <br>
@@ -42,7 +44,7 @@
     <p>Press the download button to download the csv file.</p>
     {% load static %}
     <a href="{% static 'scraper/output.csv' %}" download>
-        <button class="btn"><i class="fa fa-download"></i>Download</button>
+        <button class="btn"><i class="fa fa-download"></i>Download CSV File</button>
     </a>
 
 </h2>

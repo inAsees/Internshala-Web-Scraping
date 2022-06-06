@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Internshala Scraper|Download</title>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+
+    </style>
+</head>
+<body>
+
+<h1>
+    About Internshala Scraper
+</h1>
+<h2>
+    <p>
+        This website is intended to scrap all the necessary data from <a href="https://internshala.com/">www.internshala.com</a>
+        as per the <a href="https://internshala.com/internships"><strong>keyword</strong></a> selected by the user.<br>
+        Once the scraping is completed , all the scraped data will be stored in the database(MySQL) as well as CSV file.
+    </p>
+</h2>
+<br>
+<br>
+<h2>
+
+    <p>Press the download button to download the csv file.</p>
+    {% load static %}
+    <a href="{% static 'scraper/output.csv' %}" download>
+        <button class="btn"><i class="fa fa-download"></i>Download</button>
+    </a>
+
+</h2>
+

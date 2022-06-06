@@ -1,5 +1,7 @@
 import os
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
+
 from backend.src.scrapper import ScrapInternshala
 from backend.src.utils import Utils
 from output_file_path import dir_name
@@ -22,7 +24,10 @@ def index(request):
                                   number_of_openings=d.number_of_openings, skills=d.skill_set, perks=d.perks,
                                   src_url=d.src_url)
         intern.save()
-    file_path = os.path.join(dir_name, 'backend', 'asset', 'output.csv')
+    file_path = os.path.join(dir_name, 'internshala_web_app/scraper/static/scraper/output.csv')
     scrap_internshala.dump(file_path)
-    keywords = Utils.get_available_keywords()
-    return render(request, 'index.html', {'keywords': keywords})
+    return redirect(download)
+
+
+def download(request):
+    return render(request, 'download.html')

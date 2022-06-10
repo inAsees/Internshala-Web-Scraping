@@ -73,15 +73,8 @@ WSGI_APPLICATION = 'internshala_web_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'my_db',
-        'ENGINE': 'mysql.connector.django',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'OPTIONS': {
-            'autocommit': True,
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'my_db.sqlite3',
     }
 }
 

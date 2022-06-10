@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from backend.src.scrapper import ScrapInternshala
 from backend.src.utils import Utils
 from output_file_path import dir_name
-from .models import InternshipDetail
 
 
 # Create your views here.
@@ -14,14 +13,6 @@ def index(request):
     keyword_search = request.POST['keyword']
     scrap_internshala = ScrapInternshala(keyword_search)
     scrap_internshala.scrap_all_pages()
-    for d in scrap_internshala.get_company_info_list():
-        intern = InternshipDetail(internship_id=d.internship_id, title=d.job_title, company=d.company,
-                                  monthly_stipend=d.monthly_lump_sum, weekly_stipend=d.weekly_lump_sum,
-                                  incentives=d.incentive, duration=d.duration_in_days, location=d.location,
-                                  last_date_to_apply=d.apply_by, applicants_count=d.applicants,
-                                  number_of_openings=d.number_of_openings, skills=d.skill_set, perks=d.perks,
-                                  src_url=d.src_url)
-        intern.save()
     file_path = os.path.join(dir_name, 'internshala_web_app/scraper/static/scraper/output.csv')
     scrap_internshala.dump(file_path)
     return redirect(download)

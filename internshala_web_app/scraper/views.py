@@ -1,7 +1,5 @@
 import os
-
 from django.shortcuts import render, redirect
-
 from backend.src.scrapper import ScrapInternshala
 from backend.src.utils import Utils
 from output_file_path import dir_name

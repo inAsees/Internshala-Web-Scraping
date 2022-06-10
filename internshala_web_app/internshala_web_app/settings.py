@@ -70,14 +70,17 @@ WSGI_APPLICATION = 'internshala_web_app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 DATABASES = {
     'default': {
-        'NAME': 'my_db',
+        'NAME': '65PGU5zEDx',
         'ENGINE': 'mysql.connector.django',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': 'localhost',
+        'USER': '65PGU5zEDx',
+        'PASSWORD': f'{os.environ.get("password")}',
+        'HOST': 'remotemysql.com',
         'PORT': '3306',
         'OPTIONS': {
             'autocommit': True,

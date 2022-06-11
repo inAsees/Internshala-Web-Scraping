@@ -4,7 +4,6 @@ from backend.src.scrapper import ScrapInternshala
 from backend.src.utils import Utils
 from output_file_path import dir_name
 
-
 # Create your views here.
 def index(request):
     if request.method == "GET":

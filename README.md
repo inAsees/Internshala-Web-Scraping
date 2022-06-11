@@ -25,7 +25,7 @@ and the scraped data can be downloaded by the user as a CSV  file.
    ```
 2. Install pip (package installer for Python)
    [here](https://pip.pypa.io/en/stable/installing/)
-3. Install Python packages
+3. Go to the internshala_web_app directory , and run the following command:
    ```sh
    pip install -r requirements.txt
    ```

@@ -8,7 +8,7 @@ import requests as req
 from bs4 import BeautifulSoup as bs
 from bs4.element import ResultSet
 from tqdm import tqdm
-from internshala_web_app.backend.src.get_stipend import GetStipend
+from backend.src.get_stipend import GetStipend
 
 
 @dataclass

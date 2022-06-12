@@ -24,9 +24,9 @@
 <br>
 <form method="POST" action='{% url "home" %}'>
     {% csrf_token %}
-    <select class="form-select" aria-label="Default select example" name="keyword">
+    <select class="form-select" aria-label="Default select example" name="categories">
         <option selected>--select--</option>
-        {% for i in keywords %}
+        {% for i in categories %}
         <option>{{i}}</option>
         {% endfor %}
     </select>

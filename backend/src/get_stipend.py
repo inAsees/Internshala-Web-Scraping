@@ -5,7 +5,7 @@ import logging
 class GetStipend:
     @classmethod
     def get_stipend(cls, raw_text: str) -> Tuple[int, int]:
-        if "Unpaid" in raw_text:
+        if raw_text in ["Unpaid", "Performance Based"]:
             monthly_stipend = 0
             weekly_stipend = 0
             return monthly_stipend, weekly_stipend

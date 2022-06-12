@@ -30,9 +30,9 @@ class CompanyInfo:
 
 
 class ScrapInternshala:
-    def __init__(self, keyword_search: str):
+    def __init__(self, category: str):
         self._base_url = "https://internshala.com"
-        _python_intern_page = "internships/keywords-{}".format(keyword_search)
+        _python_intern_page = "internships/{}-internship".format(category)
         _total_pages = self._get_total_pages("{}/{}/page-1".format(self._base_url, _python_intern_page))
         self._python_internship_page_url = ["{}/{}/page-{}".format(self._base_url, _python_intern_page, i) for i in
                                             range(1, _total_pages + 1)]
@@ -198,6 +198,8 @@ class ScrapInternshala:
             elif "starting" in text:
                 continue
             elif "%" in text:
+                if "(" not in text:
+                    return text
                 idx = text.index("(")
                 incentive = text[idx + 1:-2]
             elif "%" not in text:
